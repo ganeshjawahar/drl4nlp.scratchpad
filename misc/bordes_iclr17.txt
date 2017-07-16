@@ -1,0 +1,24 @@
+--------------------------------------------------------------------------------------------------------------------------------
+2. Learning End-to-End Goal-Oriented Dialog
+Antoine Bordes, Y-Lan Boureau, Jason Weston
+ICLR 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Build end-to-end dialog system (DS) in a goal oriented setting.
+Chit-chat dialog to goal-oriented dialog
+Slot-filling assuming dialog state structure is hard to scale for newer domains
+Where do end-to-end dialog models fall short while competing with traditional methods even in the well-defined narrow-domain tasks
+Available datasets are based on interaction between users and existing systems. <= noisy, hard to interpret
+
+Novelty/Contributions:
+Break down goal-directed objective into 5 subtasks within the context of resturant reservation. 
+Propose  2 additional datasets extracted from real interactions to test E2E models in goal-oriented scenarios.
+DS with MemNN can perform non-trivial operations => Per-dialog performance remains low while per-response performance is encouraging.
+
+RL:
+No RL involved here. :(
+ 
+Pros/Cons:
+Per-dialog performance is low <= scope for improvement of E2E models
+Needs access to omniscient labeler

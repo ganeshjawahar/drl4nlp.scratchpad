@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------------------------------------------------------
+1. Dialog-based Language Learning
+Jason Weston
+NIPS 2016
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Develop a dialog agent that can learn while conducting conversations
+* Supervision should not come from word-level or sentence level data.
+* Which type of learning strategy will work in which setting?
+* How a non-expoert can learn to imprve its dialog skills while conversing?
+
+Novelty/Contributions:
+* Learn through communications implicitly in response of dialog partner during conversation <= feedback is in natural language
+* A model incorporating predictive look-ahead to learn from teachers response <= learner tries to predict teacher’s replies to its actions
+* A set of tasks is introduced to model natural feedback from teacher, and hence assess the feasibility of dialog-based language learning.
+
+RL: 
+* Fix policy for performing actions (answering questions) which gets questions correct with pi_acc <= experiments are not in RL setting
+* Imitation Learning (typical QA)
+* Reward-based imitation (apply IL on rewarded actions)
+* Forward prediction (predict the changed state of world after action a)
+
+Pros/Cons:
+* Learn to answer questions correctly without any reward-based supervision at all
+* No RL, pre-built datasets with fixed policies given in advance
+* Experiments used only simulated and no real language data
+
+Future directions:
+* Work in complex setting where actions that are made lead to long-term changes in the environment
+* Delayed rewards (RL)
+* Full language generation
