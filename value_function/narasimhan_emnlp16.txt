@@ -1,0 +1,31 @@
+--------------------------------------------------------------------------------------------------------------------------------
+5. Improving Information Extraction by Acquiring External Evidence with Reinforcement Learning
+Karthik Narasimhan, Adam Yala, Regina Barzilay
+EMNLP 2016
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Improve extraction accurary in scarce domain
+* Manually search queries, extraction from new sources, and reconciliation of extracted values
+* Multitute of linguisitc expressions that convey the same semantic relation <= need dataset with good coverage
+* Challenges - event coreference, reconciling the entities (meta classifier)
+
+Novelty/Contributions:
+* A new RL framework where we learn to select optimal actions based on contextual information when large training data is not available
+* Query formulation + Extraction from new sources + Value reconciliation
+
+RL:
+* A deep Q-network trained to optimize a reward function that reflects extraction accuracy while pernalizing extra effort.
+* State - Current and new entity values, Similarity between source article and newly retrieved document
+* Actions - article retrieval, value reconciliation
+* Reward - Max(Extraction accurary), Min(Num queries)
+* Transitions - Starts off with single source article
+* Network - Deep Q-Network
+* Base extractor - Maximum Entropy Model
+* Queries come from automatically generated alternatives
+ 
+Pros/Cons:
+* Saves the monotonic job for scarce domain.
+* Use external info. sources to resolve ambiguity
+* Final RL model outperforms basic extractors + meta-classifier
+* Uses domain-specific template queries

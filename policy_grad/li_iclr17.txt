@@ -1,0 +1,33 @@
+--------------------------------------------------------------------------------------------------------------------------------
+3. Dialog Learning with Human-in-the-loop
+Jiwei Li, Alexander H. Miller, Sumit Chopra, Marc’ Aurelio Ranzato, Jason Weston
+ICLR 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Develop conversational agent
+* Most focus on learning from fixed training sets of labeled data rather than interacting with a dialog partner in an online fashion. <= combining OFFLINE + ONLINE is needed
+* Instable online learning and other challenges
+
+Novelty/Contributions:
+* Bot improves QA ability from feedback a teacher gives following its generated responses.
+* Exploit two feedback: explicit numerical rewards, textual feedback
+* Two teachers: dialogue simulator, real humans (more variability of language)
+
+RL: 
+* Model’s policy affects the data which is used to train it.
+* Policy: MemN2N model
+* State: Dialogue history
+* Action: Set of answers MemN2N has to choose from to answer teacher’s question
+* 1 action per episode
+* Reward: 1 (reward from teacher when bot answers correctly) or 0 (answer is incorrect or positive reward is simply missing)
+* Setting is closest to standard contextual bandits, except that the reward is binary
+* Batch_size: dialogue episodes
+* Off-policy learning
+* Strategies: online batch size (policy update per batch), dataset-sized batch (policy updated after epoch)
+* Reward-Based Imitation (RBI) - Exploration is e-greedy (crucial)
+* REINFORCE - baseline (using LR; independent of policy model;); Exploration through distribution over actions produced by model itself;
+* Forward Prediction - E-greedy exploration; Data balancing - cluster teacher responses and balance training across clusters - type of experience replay - to make model exposed to equal positive and negative feedback.
+
+Future directions:
+Move towards Never-ending learning setup
