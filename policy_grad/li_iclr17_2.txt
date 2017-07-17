@@ -1,0 +1,26 @@
+--------------------------------------------------------------------------------------------------------------------------------
+4. Learning through dialogue interactions by asking questions
+Jiwei Li, Alexander H. Miller, Sumit Chopra, Marc’ Aurelio Ranzato, Jason Weston
+ICLR 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Build an interactive dialogue agent who can also ask questions
+* Learner can’t understand the surface form of text
+* Learner has problem with reasoning i.e. connect to relevant knowledge
+* Learner lacks knowledge to answer questions in first place
+* Learning through fixed supervised signals rather than interacting with users
+
+Novelty/Contributions:
+* First step in developing end-to-end learned interactive dialogue agents <= learn how to learn
+* Categorizes mistakes a learner can make
+* Compare both offline supervised and online reinforcement learning settings
+
+RL: 
+* Sequential Action: Ask a question or not; Guess the final answer;
+* Cost: Patience of the teacher, Final Answer Correctness
+* Policy Gradients: REINFORCE
+
+Pros/Cons:
+* Performance is good for real data too.
+* Asking questions both during training and testing performs the best.

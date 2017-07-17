@@ -1,0 +1,31 @@
+--------------------------------------------------------------------------------------------------------------------------------
+7. Task-Oriented Query Reformulation with Reinforcement Learning
+Rodrigo Nogueira, Kyunghyun Cho
+arxiv 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* A query reformulator to improve document recall in IR.
+* Complex queries fail to deliver relevant items
+
+Novelty/Contributions:
+* Design a query reformulator using RL which rewrites a query to to maximize the number of relevant documents returned.
+* A method to estimate a conservative upper-bound performance
+* Evaluate agent for Q&A, citation recommendation, passage/snippet retrieval.
+
+RL: 
+* Action: Selecting terms to build a reformulated query
+* Reward: Document recall
+* State: Retrieved documents
+* REINFORCE
+* Entropy regularization on policy
+
+Pros/Cons:
+* Improvement of 5-20% in terms of recall on 3 datasets against strong baselines.
+* Using search engine as black box, the agent can use search engine for a task other than the one it was originally intended for.
+* Not require click-through dataset or anchor text/title pairs
+
+Future directions:
+* Iterative reformulation under proposed framework
+* Using information from modalities other than text
+* Better RL algorithms for partially-observable environment.

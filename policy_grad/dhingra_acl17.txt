@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------------------------------------------------------------
+12. Towards End-To-End Reinforcement Learning of Dialogue Agents for Information Access
+Bhuwan Dhingra, Lihong Li, Xiujun Li, Jianfeng Gao, Yun-Nung Chen, Faisal Ahmed, Li Deng
+ACL 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Help user search KBs without composing complicated queries
+* Previous systems use symbolic query (NLT to SQL query) to KB which breaks the differentiability of the system and prevents end-to-end training (online update) of neural dialogue agents
+* Users typically use less than 5 words
+* Unrealistic to assume that users can construct compositional queries without prior knowledge of structure of KB to be queried.
+
+Novelty/Contributions:
+* Replace symbolic queries with an induced soft posterior distribution over KB that indicates which entities the user is interested in.
+* Present a fully neural model trained entirely from user feedback, applicable to personalized dialogue agents.
+* Achieve task success rate in fewer dialogue turns
+
+RL: 
+* Entity-centric KB
+* Row - entity (N) (‘actor’)
+* Column - relation or slot (M) (‘Bill Murray’)
+Agent
+* Maintains M binomials that denote the probability that user knows the value of slot
+* Maintains M multinomials denoting the probability at turn t that the user constraint for slot
+* Action - request(slot=i)  M + 1
+Components:
+* Belief Tracker - Identifying user intent, Extracting associated slots, Tracking dialogue state
+* Summary module - Summarize state into vector
+* Dialogue policy - Select the next system action based on current state
+* REINFORCE
+* Reward - user simulator assigns it if user target is in top R results
+
+Pros/Cons:
+* Hard KB lookup replaced by soft-lookup
+* No need to write complicated queries
+* Do not deal with new entities or relations at test time
+* Perform poorly with real users => outside this vocabulary, overfitting
+
+Future directions:
+* Gradually, as more experience is collected, the system can switch from RL-Soft to the personalized E2E agent. Effective implementation of this, however, requires the E2E agent to learn quickly and this is the research direction, we plan to focus on in the future.
+

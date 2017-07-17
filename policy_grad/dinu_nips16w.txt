@@ -1,0 +1,31 @@
+--------------------------------------------------------------------------------------------------------------------------------
+9. Reinforcement Learning for Transition-Based Mention Detection
+Georgiana Dinu, Wael Hamza and Radu Florian
+NIPS 2016 (Workshop)
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* RL framework for Mention Detection
+* Label bias: Longer mentions are difficult to label correctly <= model needs significant look-ahead and increased capacity
+
+Novelty/Contributions:
+* Devise a transition-based model that allows to generate internal structure and update labels
+
+RL: 
+* Q-function predicts a correct mention tree root
+* Policy: Greedy in Q
+* State: Stack (of labeled items), buffer (words left to be processed)
+* Action space: Shift_lab, Reduce_lab for all labels
+* TD learning; SARSA; e-greedy;
+* Copy of Q to stabilize learning
+Episode: 
+* Left-to-right process a sentence (sentence episode); reward is F-score;
+* Mention episode; reward is +ve if whole mention is correctly labeled
+
+Pros/Cons:
+* On Par result with supervised counterpart
+* Flexible in reward modeling, generating internal mention structure
+
+Future directions:
+* Use bootstrap with a policy learned in a supervised fashion
+* Give partial rewards during decode time

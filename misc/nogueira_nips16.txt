@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------------------------------------------------------
+6. End-to-End Goal-Driven Web Navigation
+Rodrigo Nogueira, Kyunghyun Cho
+NIPS 2016
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Propose a benchmark task to evaluate an agent with abilities to understand natural language and plan on partially observed environments
+* High-level reasoning based on natural languages
+* Efficient sequential decision-making capability
+* Action space is huge; Large vocabulary;
+
+Novelty/Contributions:
+* WebNav that automatically transforms a website into goal-driven web navigation task; 
+* web page = nodes; hyperlinks = directed edges; agent has to find piece of text taken from a random web page; navigate and find target node;
+* Control parameters = max_hops from start_node, length of query
+* Evaluate with jeopardy questions
+* Evaluate against Simple Search, Lucene and Google Search
+
+RL: 
+* A designated start node
+* Many target nodes for a query
+* Partially observed - graph structure is not known to the agent
+* Action - union of all outgoing edges + stop <= state-dependent action sapce
+* Reward - 1 if query is contained in the current node
+Agent:
+* Function - RNN, Feed-Forward
+* Content - BOW
+* Query - BOW, attention
+* Inference - Beam search
+
+Pros/Cons:
+* Proposed task reflects the advances in models, making it a suitable benchmark for evaluating future progress
+* Constrain a query to contain less information, making it difficult for agent to navigate.
+
+Future directions:
+* NeuAgent observes nodes as it visits during navigation; does not have access to all the nodes for each input query; use for focused crawling as much of content is either hidden or dynamically generated.

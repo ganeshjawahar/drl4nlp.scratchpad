@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------------------------------------------------------
+13. Deep Reinforcement Learning for Mention-Ranking Coreference models
+Kevin Clark, Christopher D. Manning
+EMNLP 2016
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Build a coreference resolution system >= Scores pair of mentions for likelihood of coreference
+* Heuristic loss functions requiring careful hyper-parameter tuning <= complicates training
+
+Novelty/Contributions:
+* Propose two solutions: REINFORCE PG, reward re-scaled max-margin objective
+
+RL: 
+* Idea: Optimize the loss hyper-parameters that is correlated with coreference evaluation metrics
+* Action: Link the ith mention to the candidate (1 action per mention per document)
+* Reward: B3 coreference metric
+
+Pros/Cons:
+* REINFORCE is competitive with heuristics, but both beaten by re-scaled approach.

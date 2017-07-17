@@ -1,0 +1,33 @@
+--------------------------------------------------------------------------------------------------------------------------------
+10. Learning to Compose Words into Sentences With Reinformcement Learning
+Dani Yogatma, Phil Blunsom, Chirs Dyer, Edward Grefenstette, Wang Ling
+ICLR 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Compute representations of natural language sentences
+* Trees are provided as input or predicted using supervision from explicit treebanks
+
+Novelty/Contributions:
+* Encouraging model to learn tree-structured compositions will bias the model toward better generalizations about how words compose to form sentence meanings, leading to better performance on downstream tasks.
+Two components:
+* sentence representation model - SPINN
+* RL algo.
+
+RL: 
+* Actions: Shift (introduce leaf node), Reduce (Tree-LSTM=Composition function, combines two nodes)
+* Tracker LSTM: for modeling context
+* Policy Gradient: Hidden state of top two stack lements, embedding of current word
+* REINFORCE
+* Reward - Downstream task performance
+Settings:
+* Unsupervised - classification error
+* Semi-supervised - 1st E epochs rewards for predicting the correct SHIFT or REDUCE actions from extrenal parser.
+
+Pros/Cons:
+* Learning task-specific composition orders outperforms sequential and recursive encoders
+* Discover linguistically intuitive strucutres
+* Super slow algorithm
+* No restriction on learning these structures other than being a valid binary parse tree
+* Evaluated for sentiment classification, semantic relatedness, natural language inference and sentence generation
+* Fewer parameters

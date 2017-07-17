@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------------------------------------------------------
+8. Ask the Right Questions: Active Question Reformulation with Reinforcement Learning
+Christian Buck, Jannis Bulian, Massimiliano Ciaramita, Andrea Gesmundo, Neil Houlsby, Wojciech Gajewski
+arxiv 2017
+--------------------------------------------------------------------------------------------------------------------------------
+
+Goal & Challenges:
+* Question answering system
+* Issuing the right query
+
+Novelty/Contributions:
+* Agent that learns to optimally probe the system with natural language reformulations of initial question and aggregate the evidence to return best possible answer
+* Evaluate on SearchQA
+* Reformulator - Seq2Seq
+* Aggregator - CNN - Evaluate the candidate answers returned by environment and select the one to return
+
+RL:
+* Agent - Learn to communicate optimally to maximize the probability of receiving the correct answer.
+* Reward - Answer quality - F1 score
+* Environment - BiDirectional Attention Flow QA system
+* Policy Gradients - REINFORCE
+* Environment is opaque to agent
+* Entropy regularization on policy
+
+Pros/Cons:
+* Improves F1 by 11% over baselines
+
+Future directions:
+* AQA is a general framework for stateful, iterative, and interactive information seeking tasks.
+* Environment can have multiple information sources: e.g. a QA system, a search engine
+* Decision making process can take the form of a critic or Q-function
+* Value function can be stateful
